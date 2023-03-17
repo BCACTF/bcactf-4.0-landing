@@ -1,13 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./style.css" rel="stylesheet">
-    <title>Document</title>
+    <meta name="description" content="BCACTF 3.0 June 3-5">
+    <title>BCACTF 4.0</title>
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+    <link href="/main.css" rel="stylesheet">
 </head>
+
 <body>
-    
+    <div class="wave">
+        <img src="/assets/logo.png" id="logo" alt="BCACTF 3.0 Logo">
+    </div>
+    <div id="mainContainer">
+        <div id="mainContent">
+            <h1 id="title">BCACTF 4.0</h1>
+            <h2>JUNE 09-12 2023</h2>
+            <h3><i>Slogan Placeholder</i></h3>
+        </div>
+        <div id="countdownTimer">
+            <p id="time"></p>
+        </div>
+        <br>
+        <div id="infoContainer">
+            <div class="infoDiv left">
+                <h3>CONTACT</h3>
+                <a href="https://discord.com/invite/9Hnz7aCmr6" target="blank">Discord</a>
+                <br>
+                <a href="mailto:contact@bcactf.com">contact@bcactf.com</a>
+
+            </div>
+            <div class="infoDiv right">
+                <h3>BROUGHT TO YOU BY</h3>
+                <div id="sponsorContainer">
+                    <img src="/assets/tob.logo.png" href="https://www.trailofbits.com/" class="sponsorLogo"
+                        alt="Trail of Bits">
+                    <img src="/assets/do.logo.png" href="https://www.digitalocean.com/" class="sponsorLogo"
+                        alt="Digital Ocean">
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <p style="margin-top:7em">Made by the <a href="https://github.com/BCACTF" target="blank">BCA CTF Club</a>. Logo
+            by Melissa Park.</p>
+        <br>
+        <script>
+            const timeElem = document.getElementById("time");
+            const ctfTime = 1686355200000; // Sat, 10 June 2023, 00:00 UTC
+            const ctfEndTime = 1686614400000;
+
+            function updateTime() {
+                timeElem.innerHTML = formatTime((ctfTime - Date.now()) / 1000);
+            }
+            function formatTime(s) {
+                s = Number(s);
+                var label = "<span class='regular-color'>Competition Starts In </span><br>";
+                if (s < 0) {
+                    return "<button>hi</button>"
+                }
+                var d = Math.floor(s / (60 * 60 * 24));
+                var h = Math.floor(s % (3600 * 24) / 3600);
+                var m = Math.floor(s % 3600 / 60);
+                var s = Math.floor(s % 60);
+
+                var dDisplay = String(Math.abs(d)).padStart(2, '0') + "<label>DAYS</label> : "
+                var hDisplay = String(Math.abs(h)).padStart(2, '0') + "<label>HOURS</label> : "
+                var mDisplay = String(Math.abs(m)).padStart(2, '0') + "<label>MINUTES</label> : "
+                var sDisplay = String(Math.abs(s)).padStart(2, '0') + "<label>SECONDS</label>"
+
+                return label + dDisplay + hDisplay + mDisplay + sDisplay;
+            }
+            if (Date.now() >= ctfEndTime) {
+                document.getElementById("time").innerHTML = "<p>The event is over! See you again next year!</p>"
+            }
+            else {
+                updateTime();
+                setInterval(updateTime, 1000)
+            }
+        </script>
+    </div>
 </body>
+
 </html>
