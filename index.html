@@ -43,16 +43,14 @@
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <p style="margin-top:7em">Made by the <a href="https://github.com/BCACTF" target="blank">BCA CTF Club</a>. Logo
+        <p class="bottom">Made by the <a href="https://github.com/BCACTF" target="blank">BCA CTF Club</a>. Logo
             by Melissa Park.</p>
-        <br>
+
         <script>
             const timeElem = document.getElementById("time");
             const ctfTime = 1686355200000; // Sat, 10 June 2023, 00:00 UTC
             const ctfEndTime = 1686614400000;
-
+            var interval;
             function updateTime() {
                 timeElem.innerHTML = formatTime((ctfTime - Date.now()) / 1000);
             }
@@ -60,26 +58,27 @@
                 s = Number(s);
                 var label = "<span class='regular-color'>Competition Starts In </span><br>";
                 if (s < 0) {
-                    return "<button>hi</button>"
+                    clearInterval(interval);
+                    return `<button onclick='window.location.href="https://play.bcactf.com";'\>Play →</button>`;
                 }
                 var d = Math.floor(s / (60 * 60 * 24));
                 var h = Math.floor(s % (3600 * 24) / 3600);
                 var m = Math.floor(s % 3600 / 60);
                 var s = Math.floor(s % 60);
 
-                var dDisplay = String(Math.abs(d)).padStart(2, '0') + "<label>DAYS</label> : "
-                var hDisplay = String(Math.abs(h)).padStart(2, '0') + "<label>HOURS</label> : "
-                var mDisplay = String(Math.abs(m)).padStart(2, '0') + "<label>MINUTES</label> : "
-                var sDisplay = String(Math.abs(s)).padStart(2, '0') + "<label>SECONDS</label>"
+                var dDisplay = String(Math.abs(d)).padStart(2, '0') + "<label> Days</label> : "
+                var hDisplay = String(Math.abs(h)).padStart(2, '0') + "<label> Hours</label> : "
+                var mDisplay = String(Math.abs(m)).padStart(2, '0') + "<label> Minutes</label> : "
+                var sDisplay = String(Math.abs(s)).padStart(2, '0') + "<label> Seconds</label>"
 
                 return label + dDisplay + hDisplay + mDisplay + sDisplay;
             }
             if (Date.now() >= ctfEndTime) {
-                document.getElementById("time").innerHTML = "<p>The event is over! See you again next year!</p>"
+                document.getElementById("time").innerHTML = "<span class='regular-color'>The event is over! See you again next year!</span><br>"
             }
             else {
                 updateTime();
-                setInterval(updateTime, 1000)
+                interval = setInterval(updateTime, 1000)
             }
         </script>
     </div>
