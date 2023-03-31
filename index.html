@@ -35,7 +35,7 @@
 
     <div id="mainContent">
         <h1 id="title">BCACTF 4.0</h1>
-        <h2>June 09-12 2023</h2>
+        <h2 class="accent">June 09-12 2023</h2>
     </div>
     <div id="countdownTimer">
         <p id="time"></p>
@@ -82,9 +82,9 @@
             var m = Math.floor(s % 3600 / 60);
             var s = Math.floor(s % 60);
 
-            var dDisplay = String(Math.abs(d)).padStart(2, '0') + "<label> Days</label> : "
-            var hDisplay = String(Math.abs(h)).padStart(2, '0') + "<label> Hours</label> : "
-            var mDisplay = String(Math.abs(m)).padStart(2, '0') + "<label> Minutes</label> : "
+            var dDisplay = String(Math.abs(d)).padStart(2, '0') + "<label> Days</label> <span class='blue'>:</span> "
+            var hDisplay = String(Math.abs(h)).padStart(2, '0') + "<label> Hours</label> <span class='blue'>:</span> "
+            var mDisplay = String(Math.abs(m)).padStart(2, '0') + "<label> Minutes</label> <span class='blue'>:</span> "
             var sDisplay = String(Math.abs(s)).padStart(2, '0') + "<label> Seconds</label>"
 
             return label + dDisplay + hDisplay + mDisplay + sDisplay;
