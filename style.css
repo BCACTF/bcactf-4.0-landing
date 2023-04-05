@@ -1,10 +1,10 @@
 :root {
-    --accent: #dd4f45;
-    --text-color: #0a3d68;
+    --accent: rgb(221, 79, 69);
+    --text-color: rgb(10, 61, 104);
     --bg-bottom: rgb(227, 217, 195);
     --bg-top: rgb(207, 185, 155);
-    --wave-top: #3E68BD;
-    --wave-bottom: #77D4CA;
+    --wave-top: rgb(62, 104, 189);
+    --wave-bottom: rgb(119, 212, 202);
 }
 
 html,
@@ -215,6 +215,13 @@ p {
         font-size: 2rem;
     }
 
+    #mainContent {
+        line-height: unset;
+    }
+
+    #title {
+        font-size: 4rem !important;
+    }
     #countdownTimer {
         margin: auto;
         width: 95%;
@@ -222,8 +229,13 @@ p {
         margin-top: -1.5em;
     }
 
-    #time {
+    .time-info {
         font-size: 2rem;
+    }
+    
+    #time {
+        font-size: 1.5rem;
+        padding: 0.25em;
     }
 
     #infoContainer {
@@ -260,5 +272,11 @@ p {
 
     .sponsorLogo {
         width: 20vw;
+    }
+
+    @keyframes wave {
+        50% {
+            transform: translate(0, -10%);
+        }
     }
 }

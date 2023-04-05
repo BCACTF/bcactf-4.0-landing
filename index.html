@@ -50,13 +50,8 @@
 
         </div>
         <div class="infoDiv right">
-            <h3>BROUGHT TO YOU BY</h3>
-            <div id="sponsorContainer">
-                <img src="/assets/tob.logo.png" href="https://www.trailofbits.com/" class="sponsorLogo"
-                    alt="Trail of Bits">
-                <img src="/assets/do.logo.png" href="https://www.digitalocean.com/" class="sponsorLogo"
-                    alt="Digital Ocean">
-            </div>
+            <h3>INTERESTED IN SPONSORING?</h3>
+            <a href="mailto:contact@bcactf.com">Contact Us</a>
         </div>
     </div>
     <p class="bottom">Made by the <a href="https://github.com/BCACTF" target="blank">BCA CTF Club</a>. Logo
@@ -90,7 +85,7 @@
             return label + dDisplay + hDisplay + mDisplay + sDisplay;
         }
         if (Date.now() >= ctfEndTime) {
-            document.getElementById("time").innerHTML = "<p class='time-info'>The event is over! See you again next year!</p>"
+            document.getElementById("time").innerHTML = "<p class='time-info'>The event is over! See you next year!</p>"
         }
         else {
             updateTime();
