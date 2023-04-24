@@ -161,7 +161,7 @@ p {
     z-index: -10;
     width: 100%;
     animation: wave 4s infinite ease-in-out;
-    margin-bottom: -5vw;
+    margin-bottom: -2.5vw;
 }
 
 .accent {
@@ -215,6 +215,15 @@ p {
         font-size: 2rem;
     }
 
+    #svgLogo {
+        transform: scale(2.25);
+        transform-origin: top center
+    }
+
+    .wave {
+        margin-bottom: 15vw;
+    }
+
     #mainContent {
         line-height: unset;
     }
@@ -224,7 +233,7 @@ p {
     }
     #countdownTimer {
         margin: auto;
-        width: 95%;
+        width: 100%;
         margin-bottom: -3em;
         margin-top: -1.5em;
     }
