@@ -62,6 +62,7 @@
         const ctfTime = 1686355200000; // Sat, 10 June 2023, 00:00 UTC
         const ctfEndTime = 1686614400000;
         var interval;
+        var showSeconds = window.innerWidth > 801;
         function updateTime() {
             timeElem.innerHTML = formatTime((ctfTime - Date.now()) / 1000);
         }
@@ -77,20 +78,24 @@
             var m = Math.floor(s % 3600 / 60);
             var s = Math.floor(s % 60);
 
-            var dDisplay = String(Math.abs(d)).padStart(2, '0') + "<label> Days</label> <span class='blue'>:</span> "
-            var hDisplay = String(Math.abs(h)).padStart(2, '0') + "<label> Hours</label> <span class='blue'>:</span> "
-            var mDisplay = String(Math.abs(m)).padStart(2, '0') + "<label> Minutes</label> <span class='blue'>:</span> "
-            var sDisplay = String(Math.abs(s)).padStart(2, '0') + "<label> Seconds</label>"
+            var dDisplay = String(Math.abs(d)).padStart(2, '0') + "<label> Days</label> <span class='blue'>:</span> ";
+            var hDisplay = String(Math.abs(h)).padStart(2, '0') + "<label> Hours</label> <span class='blue'>:</span> ";
+            var mDisplay = String(Math.abs(m)).padStart(2, '0') + "<label> Minutes</label> ";
+            var sDisplay = "<span class='blue'>: </span>" + String(Math.abs(s)).padStart(2, '0') + "<label> Seconds</label></span>";
 
-            return label + dDisplay + hDisplay + mDisplay + sDisplay;
+            return label + dDisplay + hDisplay + mDisplay + (showSeconds ? sDisplay : "");
         }
         if (Date.now() >= ctfEndTime) {
-            document.getElementById("time").innerHTML = "<p class='time-info'>The event is over! See you next year!</p>"
+            document.getElementById("time").innerHTML = "<p class='time-info'>The event is over! See you next year!</p>";
         }
         else {
             updateTime();
-            interval = setInterval(updateTime, 1000)
+            interval = setInterval(updateTime, 1000);
         }
+
+        window.addEventListener('resize', function () {
+            showSeconds = window.innerWidth > 801;
+        });
     </script>
 </body>
 
