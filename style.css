@@ -148,7 +148,7 @@ a:hover {
 
 .bottom {
     position: absolute;
-    bottom: 0;
+    bottom: 0.5vw;
     margin: 0;
     width: 100%;
 }
@@ -194,6 +194,7 @@ p {
 
 @media only screen and (max-height: 750px) {
     .bottom {
+        bottom: 0;
         background-color: var(--bg-bottom);
     }
 }
@@ -246,7 +247,7 @@ p {
     }
     
     #time {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
         padding: 0.25em;
     }
 
