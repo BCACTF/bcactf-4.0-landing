@@ -36,6 +36,9 @@
     <div id="mainContent">
         <h1 id="title">BCACTF 4.0</h1>
         <h2 class="accent">June 09-12 2023</h2>
+        <a href="https://play.bcactf.com">
+            <button id="signup">Sign Up Now →</button>
+        </a>
     </div>
     <div id="countdownTimer">
         <p id="time"></p>
@@ -69,10 +72,6 @@
         function formatTime(s) {
             s = Number(s);
             var label = "<p class='time-info'>Competition Starts In: </p>";
-            if (s < 0) {
-                clearInterval(interval);
-                return `<button onclick='window.location.href="https://play.bcactf.com";'\>Play →</button>`;
-            }
             var d = Math.floor(s / (60 * 60 * 24));
             var h = Math.floor(s % (3600 * 24) / 3600);
             var m = Math.floor(s % 3600 / 60);
@@ -85,6 +84,10 @@
 
             return label + dDisplay + hDisplay + mDisplay + (showSeconds ? sDisplay : "");
         }
+        if (Date.now() >= ctfTime) {
+            document.getElementById("time").innerHTML = "<p class='time-info'>The event has started! Good luck!</p>";
+        }
+        else
         if (Date.now() >= ctfEndTime) {
             document.getElementById("time").innerHTML = "<p class='time-info'>The event is over! See you next year!</p>";
         }
