@@ -36,9 +36,6 @@
     <div id="mainContent">
         <h1 id="title">BCACTF 4.0</h1>
         <h2 class="accent">June 09-12 2023</h2>
-        <a href="https://play.bcactf.com">
-            <button id="signup">Sign Up Now →</button>
-        </a>
     </div>
     <div id="countdownTimer">
         <p id="time"></p>
@@ -84,12 +81,12 @@
 
             return label + dDisplay + hDisplay + mDisplay + (showSeconds ? sDisplay : "");
         }
-        if (Date.now() >= ctfTime) {
-            document.getElementById("time").innerHTML = "<p class='time-info'>The event has started! Good luck!</p>";
-        }
-        else
         if (Date.now() >= ctfEndTime) {
             document.getElementById("time").innerHTML = "<p class='time-info'>The event is over! See you next year!</p>";
+        }
+        else
+        if (Date.now() >= ctfTime) {
+            document.getElementById("time").innerHTML = "<p class='time-info'>The event has started! Good luck!</p>";
         }
         else {
             updateTime();
